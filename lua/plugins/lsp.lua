@@ -205,7 +205,7 @@ return {
         local servers = {
             bashls = {},
             marksman = {},
-            -- clangd = {},
+            clangd = {},
             -- gopls = {},
             -- pyright = {},
             -- rust_analyzer = {},

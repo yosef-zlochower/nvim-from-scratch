@@ -1,8 +1,3 @@
--- Some keyboard mappings as I don't want to break my fingers, while typing on a "german" keyboard ;)
-vim.opt.langmap = "+]ü["
--- Plain langmap remapping does not seem to do the trick :(
-vim.keymap.set("n", "ü", "[", { remap = true })
-
 vim.opt.expandtab = true -- Convert tabs to spaces
 vim.opt.shiftwidth = 4 -- Amount to indent with << and >>
 vim.opt.tabstop = 4 -- How many spaces are shown per Tab
@@ -26,7 +21,7 @@ vim.opt.cursorline = true
 vim.opt.undofile = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.mouse = "a"
+-- vim.opt.mouse = "a"
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
@@ -36,7 +31,8 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 -- Keep signcolumn on by default
-vim.opt.signcolumn = "yes"
+-- vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "no"
 
 -- Configure how new splits should be opened
 vim.opt.splitright = true
