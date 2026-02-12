@@ -11,3 +11,4 @@ end, { desc = "Format current file" })
 
 -- Map <leader>fp to open projects
 vim.keymap.set("n", "<leader>fp", ":ProjectFzf<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>ls", ":LspStop<CR>", { noremap = true, silent = true })
