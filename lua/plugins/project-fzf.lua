@@ -1,8 +1,12 @@
+-- DrKJeff16/project.nvim renamed the module from `project_nvim` to `project`,
+-- so jakobwesthoff/project-fzf.nvim no longer works with it. Use the fork's
+-- built-in fzf-lua picker instead (`:Project fzf-lua`).
 return {
-    "jakobwesthoff/project-fzf.nvim",
+    "DrKJeff16/project.nvim",
     dependencies = {
-        "ahmedkhalf/project.nvim", -- Must be configured separately
         "ibhagwan/fzf-lua",
     },
-    opts = {}, -- Will call require('project-fzf').setup(opts)
+    opts = {
+        fzf_lua = { enabled = true },
+    }, -- Will call require('project').setup(opts)
 }

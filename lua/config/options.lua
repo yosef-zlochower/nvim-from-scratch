@@ -47,3 +47,31 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 5
 
+vim.api.nvim_create_user_command("LspStop", function(opts)
+      local clients = opts.args == ""
+          and vim.lsp.get_clients({ bufnr = 0 })
+          or  vim.lsp.get_clients({ name = opts.args })
+      for _, c in ipairs(clients) do
+          c:stop()
+      end
+  end, {
+      nargs = "?",
+      complete = function() return vim.tbl_map(function(c) return c.name end,
+  vim.lsp.get_clients()) end,
+      desc = "Stop LSP client(s)",
+  })
+
+  vim.api.nvim_create_user_command("LspRestart", function(opts)
+      local clients = opts.args == ""
+          and vim.lsp.get_clients({ bufnr = 0 })
+          or  vim.lsp.get_clients({ name = opts.args })
+      for _, c in ipairs(clients) do
+          c:stop(true)   -- force = synchronous, so :edit below re-spawns the new config
+      end
+      vim.cmd("edit")
+  end, {
+      nargs = "?",
+      complete = function() return vim.tbl_map(function(c) return c.name end,
+  vim.lsp.get_clients()) end,
+      desc = "Restart LSP client(s)",
+  })

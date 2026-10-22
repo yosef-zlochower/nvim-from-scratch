@@ -205,7 +205,13 @@ return {
         local servers = {
             bashls = {},
             marksman = {},
-            clangd = {},
+            clangd = {
+               cmd = {
+                  "/usr/bin/clangd",
+                  "--background-index",
+                  "--header-insertion=never",
+               },
+            },
             -- gopls = {},
             -- pyright = {},
             -- rust_analyzer = {},
